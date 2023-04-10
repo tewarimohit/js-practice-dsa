@@ -20,6 +20,17 @@ const fiboSeries = (num) => {
   console.log(arr);
 };
 
+const fibonacciRecursion = (num) => {
+  if (num < 2) {
+    return num;
+  }
+  return fibonacciRecursion(num - 1) + fibonacciRecursion(num - 2);
+};
+
 fiboSeries(7);
+console.log(fibonacciRecursion(7)); // not a good solution
+console.log(fibonacciRecursion(25));
 
 // Big O = O(n)
+// Big O = O(2^n)
+// Fn=F(n-1)+F(n-2)
