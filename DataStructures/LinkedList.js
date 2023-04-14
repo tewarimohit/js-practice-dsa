@@ -51,11 +51,92 @@ class LinkedList {
     } else {
       let previous = this.head;
       while (previous.next) {
+        // if we check with previous it will not be null and loop will run again and node value can't be assigned to null.
         previous = previous.next;
       }
       previous.next = node;
     }
     this.size++;
+  }
+
+  insert(value, index) {
+    if (index < 0 || index > this.size) {
+      console.log("Invalid index");
+      return;
+    }
+    if (index === 0) {
+      this.prepend(value);
+    } else {
+      const node = new Node(value);
+      let prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      node.next = prev.next;
+      prev.next = node;
+      this.size++;
+    }
+  }
+
+  removeFrom(index) {
+    if (index < 0 || index > this.size) {
+      return null;
+    }
+    let removedListItem;
+    if (index === 0) {
+      removedListItem = this.head;
+      this.head = this.head.next;
+    } else {
+      let prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      removedListItem = prev.next;
+      prev.next = removedListItem.next;
+    }
+    this.size--;
+    return removedListItem.value;
+  }
+
+  removeValue(value) {
+    if (this.isEmpty()) {
+      return null;
+    }
+    if (this.head === this.head.value) {
+      this.head = this.head.next;
+      this.size--;
+      return value;
+    } else {
+      let removedListItem;
+      let prev = this.head;
+      while (prev.next && prev.next.value !== value) {
+        prev = prev.next;
+      }
+      if (prev.next) {
+        removedListItem = prev.next;
+        prev.next = removedListItem.next;
+        this.size--;
+        return value;
+      }
+      return null;
+    }
+  }
+
+  search(value) {
+    if (this.isEmpty()) {
+      return -1;
+    }
+    let i = 0;
+    let curr = this.head;
+    while (curr) {
+      if (curr.value === value) {
+        return `At index ${i}`;
+      }
+
+      curr = curr.next;
+      i++;
+    }
+    return -1;
   }
 
   print() {
@@ -65,6 +146,7 @@ class LinkedList {
       let current = this.head;
       let listValues = "";
       while (current) {
+        // If we check by current.next It will not print the last node value as current.next will be null
         listValues += `${current.value} `;
         current = current.next;
       }
@@ -86,3 +168,13 @@ list.prepend(40);
 list.print();
 list.append(80);
 list.print();
+list.insert(22, 0);
+list.print();
+console.log(list.removeFrom(0));
+list.print();
+console.log(list.removeFrom(2));
+list.print();
+console.log(list.getSize());
+console.log(list.removeValue(90));
+list.print();
+console.log(list.search(10));
