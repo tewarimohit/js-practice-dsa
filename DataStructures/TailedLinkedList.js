@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class LinkedList {
+export default class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -95,20 +95,20 @@ class LinkedList {
   }
 }
 
-const list = new LinkedList();
+// const list = new LinkedList();
 
-console.log(list.isEmpty());
-console.log(list.getSize());
+// console.log(list.isEmpty());
+// console.log(list.getSize());
 
-list.append(10);
-list.append(20);
-list.append(30);
-list.append(40);
-list.append(50);
-list.print();
-list.prepend(0);
-list.print();
-console.log(list.removeFromFront());
-list.print();
-console.log(list.removeFromEnd());
-list.print();
+// list.append(10);
+// list.append(20);
+// list.append(30);
+// list.append(40);
+// list.append(50);
+// list.print();
+// list.prepend(0);
+// list.print();
+// console.log(list.removeFromFront());
+// list.print();
+// console.log(list.removeFromEnd());
+// list.print();
