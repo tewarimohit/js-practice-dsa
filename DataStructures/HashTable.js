@@ -30,17 +30,43 @@ class HashTable {
 
   set(key, value) {
     const index = this.hash(key);
-    return (this.table[index] = value);
+    // return (this.table[index] = value);
+    const bucket = this.table[index];
+    if (!bucket) {
+      this.table[index] = [[key, value]];
+    } else {
+      const sameKeyItem = bucket.find((each) => each[0] === key);
+      if (sameKeyItem) {
+        sameKeyItem[10] = value;
+      } else {
+        bucket.push([key, value]);
+      }
+    }
   }
 
   get(key) {
     const index = this.hash(key);
-    return this.table[index];
+    // return this.table[index];
+    const bucket = this.table[index];
+    if (bucket) {
+      const sameKeyItem = bucket.find((each) => each[0] === key);
+      if (sameKeyItem) {
+        return sameKeyItem[1];
+      }
+    }
+    return undefined;
   }
 
   remove(key) {
     const index = this.hash(key);
-    this.table[index] = undefined;
+    // this.table[index] = undefined;
+    const bucket = this.table[index];
+    if (bucket) {
+      const sameKeyItem = bucket.find((each) => each[0] === key);
+      if (sameKeyItem) {
+        bucket.splice(bucket.indexOf(sameKeyItem), 1);
+      }
+    }
   }
 
   display() {
@@ -58,8 +84,9 @@ table.set("First name", "Mohit");
 table.set("Last name", "Tewari");
 table.set("age", 30);
 table.set("Address", "Home");
+table.set("dressAd", "Dome");
 table.set(" id", "20");
 table.display();
 console.log(table.get("Last name"));
-table.remove("Address");
+// table.remove("Address");
 table.display();
