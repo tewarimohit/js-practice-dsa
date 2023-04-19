@@ -37,7 +37,7 @@ class HashTable {
     } else {
       const sameKeyItem = bucket.find((each) => each[0] === key);
       if (sameKeyItem) {
-        sameKeyItem[10] = value;
+        sameKeyItem[1] = value;
       } else {
         bucket.push([key, value]);
       }
