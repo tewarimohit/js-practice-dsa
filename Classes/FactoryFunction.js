@@ -30,5 +30,5 @@ function createElement(type, text, color) {
   };
 }
 
-const para = createElement("p", "How are ya", "red");
+const para = createElement("h1", "How are ya", "red");
 console.log(para);
