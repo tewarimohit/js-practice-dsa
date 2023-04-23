@@ -37,7 +37,7 @@ const coolPrototype = {
     return `This is ${this.name}`;
   },
 };
-
+// use like this don't change prototype
 function Persona(name) {
   return Object.create(coolPrototype, {
     name: { value: name },
