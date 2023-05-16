@@ -105,10 +105,31 @@
 // const secondTime = counter();
 // console.log(secondTime());
 
-const getOutput = (title, anyFunction) => {
-  anyFunction(title);
+// const getOutput = (title, anyFunction) => {
+//   anyFunction(title);
+// };
+
+// getOutput("Any Title", (a) => {
+//   console.log(a);
+// });
+
+const radius = [3, 2, 4, 1];
+
+const myMap = (arr, callbackfunc) => {
+  let newArray = [];
+  for (let each of arr) {
+    newArray.push(callbackfunc(each));
+  }
+  return newArray;
 };
 
-getOutput("Any Title", (a) => {
-  console.log(a);
-});
+const calcArea = (val) => {
+  return Math.PI * val * val;
+};
+
+const calcDiameter = (val) => val * 2;
+const calcCircumference = (val) => Math.PI * 2 * val;
+
+console.log(myMap(radius, calcArea));
+console.log(myMap(radius, calcDiameter));
+console.log(myMap(radius, calcCircumference));
