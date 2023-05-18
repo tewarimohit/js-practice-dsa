@@ -115,6 +115,7 @@
 
 const radius = [3, 2, 4, 1];
 
+// Higher order function polyfill
 const myMap = (arr, callbackfunc) => {
   let newArray = [];
   for (let each of arr) {
@@ -126,7 +127,6 @@ const myMap = (arr, callbackfunc) => {
 const calcArea = (val) => {
   return Math.PI * val * val;
 };
-
 const calcDiameter = (val) => val * 2;
 const calcCircumference = (val) => Math.PI * 2 * val;
 
