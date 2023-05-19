@@ -105,6 +105,22 @@ for (let i = 0; i < 5; i++) {
 
 // Write a program to take a number input from user and print multiplication table 12 times for that number.
 
+const getTable = (num, times) => {
+  if (times <= 0) {
+    console.log("Please enter a positive number");
+    return;
+  }
+  for (let j = 1; j <= times; j++) {
+    console.log(`Table ${j} ${j === 1 ? "time" : "times"}`);
+    for (let i = 1; i <= 10; i++) {
+      console.log(`${num} X ${i} = ${num * i}`);
+    }
+    console.log("~~~~~~~~~~~~~~~~");
+  }
+};
+
+getTable(4, 12);
+
 // Write a program to return a Fibonacci series : 0,1,1,2,3,5,8,13,21....
 
 // Write a program to take an input from a user and find its Factorial. Example: Factorial of 5 is 120
