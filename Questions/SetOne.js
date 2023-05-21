@@ -123,6 +123,19 @@ getTable(4, 12);
 
 // Write a program to return a Fibonacci series : 0,1,1,2,3,5,8,13,21....
 
+const fibonacci = (num) => {
+  let arr = [0, 1];
+  if (num < 1) {
+    return [num];
+  }
+
+  for (let i = 2; i <= num; i++) {
+    arr[i] = arr[i - 1] + arr[i - 2];
+  }
+  return arr;
+};
+console.log(fibonacci(0));
+
 // Write a program to take an input from a user and find its Factorial. Example: Factorial of 5 is 120
 
 // Write a Program to take a number input from user and find if the number is Prime or not.
