@@ -138,6 +138,52 @@ console.log(fibonacci(0));
 
 // Write a program to take an input from a user and find its Factorial. Example: Factorial of 5 is 120
 
+const factorial = (num) => {
+  if (num < 2) {
+    return 1;
+  }
+  return num * factorial(num - 1);
+};
+
+console.log(factorial(5));
+
 // Write a Program to take a number input from user and find if the number is Prime or not.
 
+const isPrime = (num) => {
+  let count = 0;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      count++;
+    }
+  }
+  if (count > 0) {
+    return "Not Prime";
+  } else {
+    return "Is a Prime";
+  }
+};
+
+console.log(isPrime(11));
+
 // Write a program to take a day as an input and determine whether it is a weekday or weekend. Example: Tuesday is weekday.
+
+const days = {
+  monday: "weekday",
+  tuesday: "weekday",
+  wednesday: "weekday",
+  thursday: "weekday",
+  friday: "weekday",
+  saturday: "weekend",
+  sunday: "weekend",
+};
+
+const lowercaseIt = (day) => {
+  return day.toLowerCase();
+};
+
+const whichDay = (day) => {
+  const lowerCased = lowercaseIt(day);
+  return days[lowerCased];
+};
+
+console.log(whichDay("monDay"));
