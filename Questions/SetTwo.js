@@ -26,11 +26,37 @@ console.log(areaOfHexagon(10));
 // Given a sentence, your functions should return the number of words in the sentence.
 // Example:
 // Input: noOfWords(We are neoGrammers) ––> Output: 3
+
+const noOfWords = (sentence, method) => {
+  if (method === 1) {
+    if (sentence.length === 0) {
+      return "Please write a sentence";
+    }
+    let count = 1;
+    for (let i = 0; i < sentence.length; i++) {
+      if (sentence[i] === " ") {
+        count++;
+      }
+    }
+    return count;
+  } else {
+    // const wordsArray = sentence.split(" ");
+    // return wordsArray.length;
+  }
+};
+
+console.log(noOfWords("We are neoGrammers", 1));
+
 // Given n numbers, your function should return the minimum of them all. The number of parameters won't be accepted from user.
 // Example:
 // Input: findMin(3,5) ––> Output: 3
 // Input: findMin(3,5,9,1) ––> Output: 1
 // (Hint: Lookup rest parameters in JavaScript)
+
+const findMin = (...nums) => {
+  return `Minimum number is : ${Math.min(...nums)}`;
+};
+console.log(findMin(3, 0, 90, 6, 1));
 // Given n numbers, your function should return the maximum of them all. The number of parameters won't be accepted from user.
 // Example:
 // Input: findMax(3,5) ––> Output: 5
