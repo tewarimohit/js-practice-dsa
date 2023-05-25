@@ -62,8 +62,31 @@ console.log(findMin(3, 0, 90, 6, 1));
 // Input: findMax(3,5) ––> Output: 5
 // Input: findMax(3,5,9,1) ––> Output: 9
 // (Hint: Lookup rest parameters in JavaScript)
+const findMax = (...nums) => {
+  return `Maximum number is : ${Math.max(...nums)}`;
+};
+console.log(findMax(3, 5, 9, 1));
 // Given three angles of a triange, your function should return if it is a scalene, isosceles, equilateral triangle or not a triangle at all. Example:
 // Input: typeOfTriangle(30, 60, 90) ––> Output: Scalene Triangle
+
+const findTriangle = (angle1, angle2, angle3) => {
+  const angleSum = angle1 + angle2 + angle3;
+  const equilateralAngle = 60;
+  if (angleSum !== 180) {
+    return "Not a Triangle";
+  }
+  if (angle1 === angle2 && angle1 === angle3 && angle2 === angle3) {
+    return "Equilateral Triangle";
+  }
+  if (angle1 === angle2 || angle1 === angle3 || angle2 === angle3) {
+    return "Isoceles Triangle";
+  }
+  if (angle1 !== angle2 && angle1 !== angle3 && angle2 !== angle3) {
+    return "Scalene Triangle";
+  }
+};
+
+console.log(findTriangle(110, 30, 40));
 
 // Medium
 // Given an array, your function should return the length of the array.
