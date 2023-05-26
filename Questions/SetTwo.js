@@ -92,9 +92,30 @@ console.log(findTriangle(110, 30, 40));
 // Given an array, your function should return the length of the array.
 // Example:
 // Input: arrayLength([1,5,3,7,8]) ––> Output: 5
+
+const arrayLength = (arr) => {
+  let count = 0;
+  for (let i = 0; arr[i] !== undefined; i++) {
+    count++;
+  }
+  return `Array length is :- ${count}`;
+};
+console.log(arrayLength([1, 5, 3, 7, 8]));
+
 // Given an array and an item, your function should return the index at which the item is present.
 // Example:
 // Input: indexOf([1,6,3,5,8,9], 3) ––> Output: 2
+
+const indexOf = (arr, num) => {
+  let placeHolder;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === num) {
+      placeHolder = i;
+    }
+  }
+  return `Number is in position ${placeHolder}`;
+};
+console.log(indexOf([1, 6, 3, 5, 8, 9], 3));
 // Given an array and two numbers, your function should replace all entries of first number in an array with the second number.
 // Example:
 // Input: replace([1,5,3,5,6,8], 5, 10) ––> Output: [1,10,3,10,6,8]
