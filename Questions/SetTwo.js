@@ -144,9 +144,44 @@ console.log(mergeArray([1, 3, 5], [2, 4, 6]));
 // Given a string and an index, your function should return the character present at that index in the string.
 // Example:
 // Input: charAt("neoGcamp", 4) ––> Output: c
+const charAt = (string, position) => {
+  if (position >= string.length || position < 0) {
+    return "Please give a valid index";
+  }
+  for (let i = 0; i <= position; i++) {
+    if (i === position) {
+      return string[i];
+    }
+  }
+};
+
+console.log(charAt("neoGcamp", 7));
 // Given two dates, your function should return which one comes before the other.
 // Example:
 // Input: minDate('02/05/2021', '24/01/2021') ––> Output: 24/01/2021
+
+const minDate = (dateOne, dateTwo) => {
+  const dateOneArray = dateOne.split("/");
+  const dateTwoArray = dateTwo.split("/");
+  if (dateOneArray[2] < dateTwoArray[2]) {
+    return dateOne;
+  } else if (dateOneArray[2] === dateTwoArray[2]) {
+    if (dateOneArray[1] < dateTwoArray[1]) {
+      return dateOne;
+    } else if (dateOneArray[1] === dateTwoArray[1]) {
+      if (dateOneArray[0] < dateTwoArray[0]) {
+        return dateOne;
+      } else {
+        return dateTwo;
+      }
+    } else {
+      return dateTwo;
+    }
+  } else {
+    return dateTwo;
+  }
+};
+console.log(minDate("02/05/2021", "24/05/2020"));
 
 // Advanced
 // Write a function which generates a secret code from a given string, by shifting characters of alphabet by N places. Example:
