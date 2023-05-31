@@ -187,9 +187,32 @@ console.log(minDate("02/05/2021", "24/05/2020"));
 // Write a function which generates a secret code from a given string, by shifting characters of alphabet by N places. Example:
 // Input: encodeString("neogcamp", 2) ––> Output: pgqiecor
 // Explanation: 2 represents shifting alphabets by 2 places. a –> c, b –> d, c –> e and so on.
+
+const encodeString = (string, encryptNum) => {
+  let encodedArray = [];
+  for (let i = 0; i < string.length; i++) {
+    encodedArray.push(parseInt(string.charCodeAt(i)) + encryptNum);
+  }
+  return String.fromCharCode(...encodedArray);
+};
+console.log(encodeString("neogcamp", 2));
+
 // Given a sentence, return a sentence with first letter of all words as capital.
 // Example:
 // Input: toSentenceCase('we are neoGrammers') ––> Output: We Are NeoGrammers
+
+const toSentenceCase = (sentence) => {
+  let newSentence = [];
+  const sentenceArray = sentence.split(" ");
+  for (let i = 0; i < sentenceArray.length; i++) {
+    newSentence.push(
+      sentenceArray[i][0].toUpperCase() + sentenceArray[i].slice(1)
+    );
+  }
+  return newSentence.join(" ");
+};
+console.log(toSentenceCase("we are neoGrammers"));
+
 // Given an array of numbers, your function should return an array in the ascending order.
 // Example:
 // Input: sortArray([100,83,32,9,45,61]) ––> Output: [9,32,45,61,83,100]
