@@ -205,9 +205,7 @@ const toSentenceCase = (sentence) => {
   let newSentence = [];
   const sentenceArray = sentence.split(" ");
   for (let i = 0; i < sentenceArray.length; i++) {
-    newSentence.push(
-      sentenceArray[i][0].toUpperCase() + sentenceArray[i].slice(1)
-    );
+    console.log(sentenceArray[i][0]);
   }
   return newSentence.join(" ");
 };
@@ -219,3 +217,40 @@ console.log(toSentenceCase("we are neoGrammers"));
 // Given a sentence, your function should reverse the order of characters in each word, keeping same sequence of words.
 // Example:
 // Input: reverseCharactersOfWord('we are neoGrammers') –––> Output: ew era sremmarGoen
+
+// getPrime=(num)=>{
+//   let count =0;
+//   for(let i=2;i<=)
+// }
+
+const findNthPrime = (num) => {
+  let i,
+    primes = [2, 3],
+    n = 5;
+  const isPrime = (n) => {
+    let i = 1,
+      p = primes[i], // i=1,p=3
+      limit = Math.ceil(Math.sqrt(n));
+    while (p <= limit) {
+      // true
+      if (n % p === 0) {
+        return false;
+      }
+      i += 1; // i=2
+      p = primes[i]; //p=5
+    }
+    return true;
+  };
+  for (i = 2; i <= num; i += 1) {
+    //7=7
+    while (!isPrime(n)) {
+      n += 2; // n=17
+    }
+    primes.push(n);
+    // primes = [2, 3, 5, 7, 11, 13, 17, 19];
+    n += 2; //n=21
+  }
+  return primes[num - 1];
+};
+
+console.log(findNthPrime(50));
