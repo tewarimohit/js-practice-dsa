@@ -174,3 +174,33 @@ function alphabetPosition(text) {
     .map((t) => letters.indexOf(t) + 1 || "")
     .join(" ");
 }
+
+//  Find odd occuring number
+
+const array = [0, 1, 0, 1, 0];
+function findOdd(A) {
+  let oddValue;
+  const getEvenOrOddTimes = A.reduce((accu, curr) => {
+    if (!accu[curr]) {
+      accu[curr] = 1;
+    } else {
+      accu[curr]++;
+    }
+    return accu;
+  }, {});
+
+  for (let value in getEvenOrOddTimes) {
+    if (getEvenOrOddTimes[value] % 2 !== 0) {
+      oddValue = value;
+    }
+  }
+
+  return oddValue;
+}
+
+console.log(findOdd(array));
+
+// or
+function findOdd(arr) {
+  return arr.find((item, index) => arr.filter((el) => el == item).length % 2);
+}
