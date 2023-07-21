@@ -220,3 +220,31 @@ function comp(array1, array2) {
   array2.sort((a, b) => a - b);
   return array1.every((item, index) => item * item == array2[index]);
 }
+
+const list = [
+  -10, -9, -8, -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18,
+  19, 20,
+];
+
+// -10--8,-6,-3-1,3-5,7-11,14,15,17-20
+function solution(arr) {
+  const resultArr = [];
+  let range = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i + 1] - arr[i] === 1) {
+      range.push(arr[i]);
+    } else {
+      if (range.length < 2) {
+        resultArr.push(...range, arr[i]);
+      } else {
+        resultArr.push(range[0] + "-" + arr[i]);
+      }
+
+      range = [];
+    }
+  }
+
+  return resultArr.join();
+}
+
+console.log(solution(list));
