@@ -105,3 +105,16 @@ input {
 	padding: 8px;
 	margin-right: 12px;
 } */
+
+.button {
+	width: 100px;
+	height: 100px;
+	background: linear-gradient(to right, red 50%, blue 50%);
+	border: none;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.button:hover {
+	transform: scale(1.1);
+}
